@@ -51,9 +51,12 @@ ull gcd_euclid(ull a, ull b)//Important : [ make sure function call for this fun
     
     
 }
+ull lcm(ull a,ull b)
+{
+    return (a*b)/(gcd_euclid(min(a,b),max(a,b)));
+}
 int main()
 {
     
-   
    return 0;
 }
