@@ -9,10 +9,12 @@
 #include <queue>
 #include <set>
 #include <string>
+#include <sstream>
 #include <iomanip>
 using namespace std;
 typedef unsigned long long int ull;
 typedef long double ld;
+#define MOD 1000000007;
 ull Fast_Exp(ull a,ull n) // O(log(n)) time 
 {
     ull x =0;
@@ -38,7 +40,35 @@ ull Fast_Exp(ull a,ull n) // O(log(n)) time
     }
     
 }
-ull gcd_euclid(ull a, ull b)//Important : [ make sure function call for this function is done like this : gcd_euclid(min(a,b),max(a,b)) ]
+ull binpow(ull a,ull b)//binary exponentaion (O(log(d))) where d is no of bits in base 2 represenation of power
+{
+   ull res = 1;
+   while (b>0)
+   {
+     if (b&1)
+     {
+       res = res*a;
+     }
+     a = a*a;
+     b = b>>1;
+   }
+   return res;
+}
+ull Mod_exp(ull a, ull b, ull m)//function to compute (a power b)mod(m)
+{
+    a %= m;
+    ull res = 1;
+    while (b > 0) {
+        if (b & 1){
+            res = res * a % m;
+        }
+           
+        a = a * a % m;
+        b >>= 1;
+    }
+    return res;
+}
+ull gcd_euclid(ull a, ull b)// Important : [ make sure function call for this function is made like this : gcd_euclid( min(a,b) , max(a,b) ) ]
 {
     if (b%a==0)
     {
@@ -55,8 +85,34 @@ ull lcm(ull a,ull b)
 {
     return (a*b)/(gcd_euclid(min(a,b),max(a,b)));
 }
+bool is_Prime(ull x)
+{
+    bool yes = true;
+    for (ull i = 2; i <= sqrt(x); i++)
+    {
+        if (x%i==0)
+        {
+            yes = false;
+            break;
+        }
+            
+    }
+  if (x!=1)
+  {
+      return yes;
+  }
+  else
+  {
+    return !yes;
+  }
+  
+   
+    
+}
 int main()
 {
-    
+  ios_base::sync_with_stdio(false);
+  
+  
    return 0;
 }
