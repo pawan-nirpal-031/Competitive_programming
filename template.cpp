@@ -15,6 +15,9 @@ using namespace std;
 typedef unsigned long long int ull;
 typedef long double ld;
 #define MOD 1000000007;
+#define pb(a) push_back(a);
+#define mp(a,b) make_pair(a,b)
+#define _for(k,v) for(auto x : v){ cout<<x<<'\n'; }
 ull Fast_Exp(ull a,ull n) // O(log(n)) time 
 {
     ull x =0;
@@ -60,10 +63,10 @@ ull Mod_exp(ull a, ull b, ull m)//function to compute (a power b)mod(m)
     ull res = 1;
     while (b > 0) {
         if (b & 1){
-            res = res * a % m;
+            res = (res * a) % m;
         }
            
-        a = a * a % m;
+        a = (a * a) % m;
         b >>= 1;
     }
     return res;
@@ -81,7 +84,7 @@ ull gcd_euclid(ull a, ull b)// Important : [ make sure function call for this fu
     
     
 }
-ull lcm(ull a,ull b)
+inline ull lcm(ull a,ull b)
 {
     return (a*b)/(gcd_euclid(min(a,b),max(a,b)));
 }
