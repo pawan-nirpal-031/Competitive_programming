@@ -17,8 +17,8 @@ typedef long double ld;
 #define MOD 1000000007;
 #define pub(a) push_back(a);
 #define mp(a,b) make_pair(a,b);
-#define aout(x,v) for(auto x : v){cout<<x<<'\n';} // array output function only
-#define ain(a,n) for(ull i =0;i<n;i++){cin>>a[i];} //array input function
+#define aout(a) for(auto x : a){cout<<x<<'\n';} // array output macro only
+#define ain(a,n) for(ull i =0;i<n;i++){cin>>a[i];} //array input macro
 #define getl(s) getline(cin,s);
 #define in(x) cin>>x;
 ull Fast_Exp(ull a,ull n) // O(log(n)) time 
@@ -110,9 +110,7 @@ bool is_Prime(ull x)
 
 int main()
 {
-  ios_base::sync_with_stdio(false);
-  
-  
-  
+     ios_base::sync_with_stdio(false);
+     
    return 0;
 }
