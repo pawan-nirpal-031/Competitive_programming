@@ -130,14 +130,30 @@ ll max_subarray_sum(ll a[],ll  n)//kadane's algo
 int main()
 {
     ios_base::sync_with_stdio(false);
-   
+    ll n,m;
+    cin>>n>>m;
+    ll *a = new ll[n+1]();
+    while(m--)
+    {
+        ll x,y,k;
+        cin>>x>>y>>k;
+        a[x]+=k;
+        if(y+1<=n) {
+            a[y+1] -=k;
+        }
 
-   
-
-
-    
-    
-
+    }
+    ll x =0;
+    ll mx =0;
+    for(ll i=1;i<=n;i++)
+    {
+        x+=a[i];
+        if(x>mx)
+        {
+            mx = x;
+        }
+    }
+    cout<<mx;
     
    return 0;
 }
