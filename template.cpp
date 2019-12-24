@@ -18,8 +18,8 @@ typedef long double ld;
 #define MOD 1000000007;
 #define pub(a) push_back(a);
 #define mp(a,b) make_pair(a,b);
-#define setA0(a) for(ull i =0;i<n;i++){a[i] = 0;}
-#define aout(a) for(auto x : a){cout<<x<<' ';} // array output macro only
+#define setA0(a) for(ull i =0;i<n;i++){a[i] = 1;}
+#define aout(a) for(auto x : a){cout<<x<<'\n';} // array output macro only
 #define ain(a) for(ull i =0;i<n;i++){cin>>a[i];} //array input macro
 #define getl(s) getline(cin,s);
 ull Fast_Exp(ull a,ull n) // O(log(n)) time 
@@ -62,24 +62,57 @@ ull binpow(ull a,ull b)//binary exponentaion (O(log(d))) where d is no of bits i
    }
    return res;
 }
-
-ull Mod_exp(ull a, ull b, ull m)//function to compute (a power b)mod(m)
+ull mod_exp_r(ull x,ull n, ull m)//O(log(power)) time and space
 {
-    a %= m;
+    if (n==0)
+    {
+        return 1;
+    }
+    else if (n%2==0)
+    {
+        return mod_exp_r((x*x)%m,n/2,m);
+    }
+    else
+    {
+        return (x*mod_exp_r((x*x)%m,n/2,m))%m;
+    }
+}
+
+ull mod_exp(ull x,ull n,ull m)//O(log(power)) time, O(1)-> space
+{
     ull res = 1;
-    while (b > 0) {
-        if (b & 1){
-            res = (res * a) % m;
+    while (n>0)
+    {
+        if(n%2==1)
+        {
+            res = (res*x)%m;
         }
-           
-        a = (a * a) % m;
-        b >>= 1;
+        x = (x*x)%m;
+        n=n/2;
     }
     return res;
 }
-
 ull gcd_euclid(ull a, ull b)// Important : [ make sure function call for this function is made like this : gcd_euclid( min(a,b) , max(a,b) ) ]
 { if(b%a==0){return a;}else{return gcd_euclid(b%a,a);} }
+
+ll gcd = 0,x = 0,y =0;// x,y are integers such that (Ax+By = gcd(A,B)) for(A>B)
+void extended_euclid(ll A,ll B)// use this function like this : extended_euclid(max(A,B),min(A,B))
+{
+    if(B==0)
+    {
+        gcd = A;
+        x = 1;
+        y = 0;
+    }
+    else
+    {
+        extended_euclid(B,A%B);
+        ll t = x;
+        x = y;
+        y = t - (A/B)*y;
+    }
+    
+}
 
 inline ull lcm(ull a,ull b)
 { return (a*b)/(gcd_euclid(min(a,b),max(a,b))); }
@@ -130,6 +163,10 @@ ll max_subarray_sum(ll a[],ll  n)//kadane's algo
 int main()
 {
     ios_base::sync_with_stdio(false);
+   
+    
+   
+    
     
    return 0;
 }
