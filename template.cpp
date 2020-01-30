@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_set>
+#include <unordered_map>
 #include <map>
 #include <iterator>
 #include <stack>
@@ -16,10 +17,12 @@ typedef unsigned long long int ull;
 typedef long long int ll;
 typedef long double ld;
 #define MOD 1000000007;
-#define pub(a) push_back(a);
-#define mp(a,b) make_pair(a,b);
-#define setA0(a) for(ull i =0;i<n;i++){a[i] = 1;}
-#define aout(a) for(auto x : a){cout<<x<<'\n';} // array output macro only
+#define pub(a) push_back(a)
+#define mp(a,b) make_pair(a,b)
+#define forit0(i,n) for(ll i =0;i<n;i++)
+#define forit(i,l,r) for(ll i =l;i<=r;i++) // run in inclusive range [l to r]
+#define setA0(a) for(ull i =0;i<n;i++){a[i] = 0;}
+#define aout(a) for(auto x : a){cout<<x<<' ';} // array output macro 
 #define ain(a) for(ull i =0;i<n;i++){cin>>a[i];} //array input macro
 #define getl(s) getline(cin,s);
 ull Fast_Exp(ull a,ull n) // O(log(n)) time 
@@ -114,6 +117,16 @@ void extended_euclid(ll A,ll B)// use this function like this : extended_euclid(
     
 }
 
+ll mod_inv_prime_mod(ll a,ll m)//fermat's lil therom use this only when m is prime
+{
+    return (mod_exp(a,m-2,m));//a-1 = (a^m-2)%m
+}
+ll mod_inv(ll a,ll m)
+{
+    extended_euclid(a,m);
+    return (x%m + m)%m;
+}
+
 inline ull lcm(ull a,ull b)
 { return (a*b)/(gcd_euclid(min(a,b),max(a,b))); }
 
@@ -158,15 +171,44 @@ ll max_subarray_sum(ll a[],ll  n)//kadane's algo
     }
     return global_max;
 }
-
-
+ull fib(ull n,vector<ull>a){
+   
+    if(a[n]==0){
+        for (ull i = 2; i <=n; i++)
+        {
+            a[i] = a[i-1] + a[i-2];
+        }
+    }
+    return a[n];
+}
+pair<ll,ll> count_case(string s){
+    pair<ll,ll>ans;
+    ans.first = 0;
+    ans.second =0;
+    for (char x : s)
+    {
+        if((int)x>=65 && (int)(x)<=90){
+            ans.first+=1;
+        }
+        if((int)x>=97 && (int)(x)<=122){
+            ans.second+=1;
+        }
+    }
+    return ans;
+}
+string to_upper(string s){
+    transform(s.begin(),s.end(),s.begin(),::toupper);
+    return s;
+}
+string to_lower(string s){
+    transform(s.begin(),s.end(),s.begin(),::tolower);
+    return s;
+}
 int main()
 {
     ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
    
     
-   
-    
-    
-   return 0;
+    return 0;
 }
