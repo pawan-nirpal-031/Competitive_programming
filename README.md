@@ -11,6 +11,7 @@ https://www.hackerearth.com/practice/algorithms/dynamic-programming/introduction
 Important Que : Connected cells in a grid : https://www.hackerrank.com/challenges/connected-cell-in-a-grid/problem
 
 
+
 #include <iostream>
 #include <cmath>
 typedef long long int ll;
@@ -32,8 +33,8 @@ int main() {
     for(ll i =0;i<n;i++){
         for(ll j =0;j<n;j++){
             
-            if(v[i]==v[j] ){
-                sum+=abs()
+            if((v[i]==v[j]) || ( (v[i]!=v[j]) && ( ( (d[j]-d[i] ) / ( v[i] - v[j] ) <0) )  ) ){
+                sum+=abs(d[i]-d[j]);
                 t = 
             }
         }
