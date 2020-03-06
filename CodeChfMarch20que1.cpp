@@ -36,7 +36,10 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll n,m;
+    int t;
+    cin>>t;
+    while(t--){
+     ll n,m;
     cin>>n>>m;
     unordered_multimap<ll,ll>ump;
     ll a[n];
@@ -67,6 +70,8 @@ int main()
             min = x.second;
         }
     }
-    cout<<min;
+    cout<<min<<'\n';   
+        
+    }
     return 0;
 }
