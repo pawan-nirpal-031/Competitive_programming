@@ -77,9 +77,29 @@ class tree{
       }
     }
   }
-  
+  ll find(ll x){
+    node*t = root;
+    while(t!=NULL || t->nd.first!=x){
+      if(x<t->nd.first){
+        t = t->l;
+      }else{
+        t = t->r;
+      }
+    }
+    if(t!=NULL){
+      return t->nd.second;
+    }
+    return -1;
+  }
+
 };
 int main(){
+   ll n;
+   cin>>n;
+   for (ll i = 0; i < n; i++)
+   {
+     
+   }
    
    
    
