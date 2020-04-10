@@ -12,35 +12,3 @@ Important Que : Connected cells in a grid : https://www.hackerrank.com/challenge
 
 
 
-#include <iostream>
-#include <cmath>
-typedef long long int ll;
-using namespace std;
-
-int main() {
-    ll n;
-    cin>>n;
-    ll d[n];
-    ll v[n];
-    for(ll i =0;i<n;i++){
-        cin>>d[i];
-    }
-    for(ll i =0;i<n;i++){
-        cin>>v[i];
-    }
-    ll sum =0;
-    ll t =0;
-    for(ll i =0;i<n;i++){
-        for(ll j =0;j<n;j++){
-            
-            if((v[i]==v[j]) || ( (v[i]!=v[j]) && ( ( (d[j]-d[i] ) / ( v[i] - v[j] ) <0) )  ) ){
-                sum+=abs(d[i]-d[j]);
-                t = 
-            }
-        }
-    }
-	return 0;
-}
-
-
-https://www.youtube.com/watch?v=yIOJIA5qYy4&list=PLw2nWbVCoZpMrTpuSLjK1U0fNKbE-z-GR
