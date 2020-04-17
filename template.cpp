@@ -16,7 +16,7 @@ using namespace std;
 typedef unsigned long long int ull;
 typedef long long int ll;
 typedef long double ld;
-#define MOD 1000000007;
+#define mod 1000000007;
 #define pub(a) push_back(a)
 #define mp(a,b) make_pair(a,b)
 #define forit0(i,n) for(ll i =0;i<n;i++)
