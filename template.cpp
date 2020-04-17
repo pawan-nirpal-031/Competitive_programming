@@ -25,6 +25,38 @@ typedef long double ld;
 #define aout(a) for(auto x : a){cout<<x<<' ';} // array output macro 
 #define ain(a) for(ull i =0;i<n;i++){cin>>a[i];} //array input macro
 #define getl(s) getline(cin,s);
+#define nofSetBits(x) __builtin_popcount(x);
+#define inGrph(g,e) while(e--){ll x;ll y;cin>>x>>y ;g[x].pub(y);g[y].pub(x);}
+
+bool CheckBipairate(vector<int>g[],vector<bool>&vis,vector<bool>&col,int s,bool c){
+	vis[s]=1;
+	col[s]=c;
+	for(auto ch : g[s]){
+		if(!vis[ch]){
+			if(dfs(g,vis,col,ch,c^1)==0){
+				return 0;
+			}
+		}
+		else{
+			if(col[s]==col[ch]){
+				return 0;
+			}
+		}
+	}
+	return 1;
+}
+
+void SingleSrcShortestPath(vector<ll>g[],vector<bool>&vis,vector<ll>&dis,ll s,ll d){
+	vis[s]=1;
+	dis[s]=d;
+	for(ll x : g[s]){
+		if(!vis[x]){
+			 dfs(g,vis,dis,x,dis[s]+1);
+		}
+	}
+}
+
+
 ull Fast_Exp(ull a,ull n) // O(log(n)) time 
 {
     ull x =0;
