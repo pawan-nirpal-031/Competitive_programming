@@ -1,5 +1,8 @@
 // problem link : https://cses.fi/problemset/task/1646
 
+// This problem is better done using prefix arrays
+
+
 #include <iostream>
 #include <cmath>
 #include <vector>
